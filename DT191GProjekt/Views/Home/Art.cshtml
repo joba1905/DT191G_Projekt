@@ -1,0 +1,22 @@
+﻿@model ArtViewModel
+@{
+    ViewData["Title"] = "My art";
+}
+
+<h1 class="center-h1">@ViewData["Title"]</h1>
+
+<p class="toptext">
+    In this gallery you will find my cross stitch artwork. I mainly make art based on memes and other things I like or find funny. I will continuously update this page with more content whenever I finish a project.
+</p>
+
+<div class="productrow">
+    @foreach (var item in Model.Art)
+    {
+        <div class="productcolumn">
+            <div class="productimg-container">
+                <a asp-action="Details" asp-route-id="@item.ArtID"><img decoding="async" src="@("~/img/" + @item.ImageName)" asp-append-version="true" /></a>
+            </div>
+            <a class="productlink" asp-action="Details" asp-route-id="@item.ArtID">@item.Title</a>
+        </div>
+    }
+</div>

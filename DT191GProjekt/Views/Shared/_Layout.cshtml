@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] || CFK</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @Html.Partial("_Header")
+
+    <main>  
+        <div class="mainlayout">
+            @Html.Partial("_NavMenu")
+
+            <div class="center">
+                @RenderBody()
+            </div>
+            
+            <div class="right"></div>
+        </div>
+    </main>
+     
+    <footer>
+        <p>&copy Joacim Bäcklund 2023</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

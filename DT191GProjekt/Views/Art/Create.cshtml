@@ -1,0 +1,35 @@
+﻿@model DT191GProjekt.Models.Art
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="login">
+        <h2>Add new item</h2>
+
+        <div class="login-input-container">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <input asp-for="Title" placeholder="Title.." />
+                <br>
+                <span asp-validation-for="Title" class="text-danger"></span>
+                <br>
+                <br>
+                <textarea class="description-input" asp-for="Description" placeholder="Description.."></textarea>
+                <br>
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <br>
+                <br>
+                <input asp-for="ImageFile" class="img-btn" accept="image/*" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                <br>
+                <br>
+                <input asp-for="AltText" placeholder="Alt text: Text description for image.." />
+                <span asp-validation-for="AltText" class="text-danger"></span>
+                <div class="login-btn-container">
+                    <button type="submit">Save <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<a class="back" asp-action="Index"><i class="bi bi-arrow-return-left"></i> Back to List</a>

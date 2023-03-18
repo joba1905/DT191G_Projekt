@@ -1,0 +1,39 @@
+﻿@model DT191GProjekt.Models.Art
+
+@{
+    ViewData["Title"] = "Edit art";
+}
+
+<div class="login">
+    <form asp-action="Edit">
+        <h2>Edit item</h2>
+
+        <div class="login-input-container">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ArtID" />
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <br>
+            <br>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <br>
+            <br>
+            <input type="text" name="image" id="image" placeholder="Item image link here..">
+        </div>
+
+        <div class="login-btn-container">
+            <button>Save <i class="bi bi-arrow-right"></i></button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

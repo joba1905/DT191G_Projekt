@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DT191GProjekt.Models.Art>
+
+@{
+    ViewData["Title"] = "Art";
+}
+
+<h1 class="center-h1">@ViewData["Title"]</h1>
+
+<p class="toptext">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, quasi aperiam.
+    Accusamus necessitatibus molestias, eos id cupiditate quisquam nesciunt aut ipsam quam,
+    sint voluptate adipisci quibusdam cumque, magnam numquam culpa.
+</p>
+
+<div class="productrow">
+    @foreach (var item in Model)
+    {
+        <div class="productcolumn">
+            <div class="productimg-container">
+                <a asp-action="Details" asp-route-id="@item.ArtID"><img src="img/Ida_artwork2.png" alt=""></a>
+            </div>
+            <a asp-action="Details" asp-route-id="@item.ArtID" class="productlink">@Html.DisplayFor(modelItem => item.Title)</a>
+        </div>
+    }
+</div>
+

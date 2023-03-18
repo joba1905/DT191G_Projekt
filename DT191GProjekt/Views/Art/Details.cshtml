@@ -1,0 +1,18 @@
+﻿@model DT191GProjekt.Models.Art
+
+@{
+    ViewData["Title"] = "Item details";
+}
+
+<div class="productimg">
+    <img decoding="async" src="@("~/img/"+Model.ImageName)" asp-append-version="true" />
+</div>
+
+<h1 class="product-h1">@Html.DisplayFor(model => model.Title)</h1>
+
+<p class="descriptiontext">
+    @Html.DisplayFor(model => model.Description)
+</p>
+
+<a class="back" asp-action="Index"><i class="bi bi-arrow-return-left"></i> Back to List</a>
+

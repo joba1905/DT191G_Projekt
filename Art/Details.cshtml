@@ -1,0 +1,16 @@
+﻿@model DT191GProjekt.Models.Art
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.Title);
+}
+
+<div class="productimg">
+    <img src="/img/Ida_artwork2.png" alt="">
+</div>
+
+<h1>@Html.DisplayFor(model => model.Title)</h1>
+
+<p>
+    @Html.DisplayFor(model => model.Description)
+</p>
+<a class="adminlink" asp-action="Index">Back to List</a>

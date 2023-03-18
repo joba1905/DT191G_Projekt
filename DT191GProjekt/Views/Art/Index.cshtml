@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DT191GProjekt.Models.Art>
+
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<h1 class="center-h1">@ViewData["Title"]</h1>
+
+<a class="adminlink" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Add new item</a>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Img
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Details
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="tableimage">
+                        <a asp-action="Details" asp-route-id="@item.ArtID"><img decoding="async" src="@("~/img/" + item.ImageName)" asp-append-version="true" /></a>
+                    </td>
+                    <td class="table-title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        <a class="table-edit" asp-action="Details" asp-route-id="@item.ArtID"><i class="bi bi-info-square"></i></a>
+                    </td>
+                    <td>
+                        <a class="table-edit" asp-action="Edit" asp-route-id="@item.ArtID"><i class="bi bi-pencil-square"></i></a>
+                    </td>
+                    <td>
+                        <a class="table-delete" asp-action="Delete" asp-route-id="@item.ArtID"><i class="bi bi-x-square"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+             

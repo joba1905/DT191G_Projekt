@@ -1,0 +1,35 @@
+﻿@model DT191GProjekt.Models.Art
+
+@{
+    ViewData["Title"] = "Edit item";
+}
+
+<div class="login">
+    <form asp-action="Edit">
+        <h2>Edit item</h2>
+
+        <div class="login-input-container">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ArtID" />
+            <input asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <br>
+            <br>
+            <textarea class="description-input" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <br>
+            <br>
+            <input type="hidden" asp-for="ImageName" readonly />
+            <input asp-for="AltText" />
+            <span asp-validation-for="AltText" class="text-danger"></span>
+        </div>
+
+        <div class="login-btn-container">
+            <button>Save <i class="bi bi-arrow-right"></i></button>
+        </div>
+    </form>
+</div>
+
+
+<a class="back" asp-action="Index"><i class="bi bi-arrow-return-left"></i> Back to List</a>
+

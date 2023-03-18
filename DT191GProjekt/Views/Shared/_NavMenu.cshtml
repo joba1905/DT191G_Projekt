@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="left">
+    <nav class="topmenu" id="topnav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-controller="Art" asp-action="Index"><i class="bi bi-house-door-fill"></i> Admin page</a>
+            <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword"><i class="bi bi-gear-fill"></i> Settings</a>
+            <a asp-area="Identity" asp-page="/Account/Register"><i class="bi bi-person-fill-add"></i> Add user</a>
+            <form class="logout-btn-container" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button class="logout-btn" type="submit"><i class="bi bi-key-fill"></i> Logout</button>
+            </form>
+            <a href="javascript:void(0);" class="hamburger" onclick="hamburgerNav()"><i class="bi bi-list"></i></a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-house-door-fill"></i> Home</a>
+            <a asp-controller="Home" asp-action="Art"><i class="bi bi-image-fill"></i> Art</a>
+            <a asp-controller="Home" asp-action="Contact"><i class="bi bi-envelope-at-fill"></i> Contact</a>
+            <a asp-controller="Art" asp-action="Index"><i class="bi bi-key-fill"></i> Admin</a>
+            <a href="javascript:void(0);" class="hamburger" onclick="hamburgerNav()"><i class="bi bi-list"></i></a>
+        }
+    </nav>
+</div>
